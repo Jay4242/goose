@@ -29,6 +29,27 @@ export const initializeAgent = async (provider, model) => {
   }
 };
 
+export const getExtensions = async () => {
+  try {
+    const response = await fetch(getApiUrl('/config/extensions'), {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Secret-Key': SECRET_KEY,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Could not get extensions:', error);
+    throw error;
+  }
+};
 
 export const sendMessage = async (messages, onMessage) => {
   const userMessage = messages[messages.length - 1];
