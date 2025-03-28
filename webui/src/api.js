@@ -44,6 +44,10 @@ export const getExtensions = async () => {
     }
 
     const data = await response.json();
+    // Sort extensions alphabetically by name
+    if (data && data.extensions) {
+      data.extensions.sort((a, b) => a.name.localeCompare(b.name));
+    }
     return data;
   } catch (error) {
     console.error('Could not get extensions:', error);
