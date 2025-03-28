@@ -1,6 +1,6 @@
 # Goose Web UI
 
-![screenshot.png](webui/screenshot.png)
+![screenshot.png](screenshot.png)
 
 This directory contains the source code for the web-based user interface for Goose. It's built using React and provides a user-friendly way to interact with the Goose agent.
 
